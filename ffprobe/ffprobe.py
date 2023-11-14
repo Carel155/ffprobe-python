@@ -221,7 +221,7 @@ class FFStream:
                 try:
                     frame_count = int(self.__dict__.get("nb_frames", ""))
                 except ValueError:
-                    raise FFProbeError("None integer frame count")
+                    frame_count = None
             else:
                 # When N/A is returned, set frame_count to 0 too
                 frame_count = 0
@@ -239,7 +239,7 @@ class FFStream:
             try:
                 duration = float(self.__dict__.get("duration", ""))
             except ValueError:
-                raise FFProbeError("None numeric duration")
+                duration = None
         else:
             duration = 0.0
 
